@@ -1,5 +1,8 @@
 .gradle
 /build/
+/.idea/
+positions.xml
+positions2.xml
 
 # Ignore Gradle GUI config
 gradle-app.setting

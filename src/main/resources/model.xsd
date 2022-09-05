@@ -1,0 +1,55 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="FlexQueryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="FlexStatements">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="FlexStatement" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="OpenPositions">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="OpenPosition" maxOccurs="unbounded" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute type="xs:string" name="accountId" use="optional"/>
+                                                                    <xs:attribute type="xs:string" name="acctAlias" use="optional"/>
+                                                                    <xs:attribute type="xs:string" name="currency" use="optional"/>
+                                                                    <xs:attribute type="xs:string" name="symbol" use="optional"/>
+                                                                    <xs:attribute type="xs:int" name="position" use="optional"/>
+                                                                    <xs:attribute type="xs:float" name="markPrice" use="optional"/>
+                                                                    <xs:attribute type="xs:float" name="costBasisPrice" use="optional"/>
+                                                                    <xs:attribute type="xs:float" name="costBasisMoney" use="optional"/>
+                                                                    <xs:attribute type="xs:float" name="fxRateToBase" use="optional"/>
+                                                                    <xs:attribute type="xs:string" name="description" use="optional"/>
+                                                                    <xs:attribute type="xs:string" name="securityID" use="optional"/>
+                                                                    <xs:attribute type="xs:string" name="securityIDType" use="optional"/>
+                                                                    <xs:attribute type="xs:string" name="listingExchange" use="optional"/>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="accountId" use="optional"/>
+                                    <xs:attribute type="xs:int" name="fromDate" use="optional"/>
+                                    <xs:attribute type="xs:int" name="toDate" use="optional"/>
+                                    <xs:attribute type="xs:string" name="period" use="optional"/>
+                                    <xs:attribute type="xs:string" name="whenGenerated" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="count"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="queryName"/>
+            <xs:attribute type="xs:string" name="type"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

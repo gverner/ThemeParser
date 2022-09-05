@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FlexQueryResponse" type="FlexQueryResponseType"/>
+  <xs:complexType name="OpenPositionType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="accountId" use="optional"/>
+        <xs:attribute type="xs:string" name="acctAlias" use="optional"/>
+        <xs:attribute type="xs:string" name="currency" use="optional"/>
+        <xs:attribute type="xs:string" name="symbol" use="optional"/>
+        <xs:attribute type="xs:string" name="position" use="optional"/>
+        <xs:attribute type="xs:string" name="markPrice" use="optional"/>
+        <xs:attribute type="xs:string" name="costBasisPrice" use="optional"/>
+        <xs:attribute type="xs:string" name="costBasisMoney" use="optional"/>
+        <xs:attribute type="xs:string" name="fxRateToBase" use="optional"/>
+        <xs:attribute type="xs:string" name="description" use="optional"/>
+        <xs:attribute type="xs:string" name="securityID" use="optional"/>
+        <xs:attribute type="xs:string" name="securityIDType" use="optional"/>
+        <xs:attribute type="xs:string" name="listingExchange" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="OpenPositionsType">
+    <xs:sequence>
+      <xs:element type="OpenPositionType" name="OpenPosition" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FlexStatementType">
+    <xs:sequence>
+      <xs:element type="OpenPositionsType" name="OpenPositions"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="accountId" use="optional"/>
+    <xs:attribute type="xs:string" name="fromDate" use="optional"/>
+    <xs:attribute type="xs:string" name="toDate" use="optional"/>
+    <xs:attribute type="xs:string" name="period" use="optional"/>
+    <xs:attribute type="xs:string" name="whenGenerated" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="FlexStatementsType">
+    <xs:sequence>
+      <xs:element type="FlexStatementType" name="FlexStatement" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="count"/>
+  </xs:complexType>
+  <xs:complexType name="FlexQueryResponseType">
+    <xs:sequence>
+      <xs:element type="FlexStatementsType" name="FlexStatements"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="queryName"/>
+    <xs:attribute type="xs:string" name="type"/>
+  </xs:complexType>
+</xs:schema>

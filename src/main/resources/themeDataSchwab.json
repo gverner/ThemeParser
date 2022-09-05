@@ -1,0 +1,366 @@
+{
+  "themeData": [
+    {
+      "name": "Cash",
+      "identities": [
+        {
+          "symbol": "CASH",
+          "listingExchange": "Cash"
+        }
+      ]
+    },
+    {
+      "name": "Base Metals",
+      "identities": [
+        {
+          "symbol": "AFMJF",
+          "listingExchange": "Other OTC"
+        },
+        {
+          "symbol": "FCX",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Agriculture",
+      "identities": [
+        {
+          "symbol": "MOO",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Coal",
+      "identities": [
+        {
+          "symbol": "BTU",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "ARCH",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Offshore Oil & Gas",
+      "identities": [
+        {
+          "symbol": "TDW",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "FTI",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VAL",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "HLX",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Oil & Gas Producers",
+      "identities": [
+        {
+          "symbol": "XOP",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "EQT",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "RSX",
+          "listingExchange": "BATS"
+        },
+        {
+          "symbol": "NI",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Rare Earth Metals",
+      "identities": [
+        {
+          "symbol": "REMX",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Shipping",
+      "identities": [
+        {
+          "symbol": "SBLK",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "STNG",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "DHT",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "GNK",
+          "listingExchange": "NYSE"
+        },{
+          "symbol" : "TNP",
+          "listingExchange" : "NYSE"
+        },{
+          "symbol" : "INSW",
+          "listingExchange" : "NYSE"
+        },
+        {
+          "symbol": "ASC",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Uranium",
+      "identities": [
+        {
+          "symbol": "URNM",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Gold & Silver",
+      "identities": [
+        {
+          "symbol": "GDX",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SLV",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Agriculture",
+      "identities": [
+        {
+          "symbol": "MOS",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "NTR",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Bonds",
+      "identities": [
+        {
+          "symbol": "DODIX",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "FBKWX",
+          "listingExchange": "Nasdaq"
+        }
+      ]
+    },
+    {
+      "name": "Argentina",
+      "identities": [
+        {
+          "symbol": "PAM",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "CRESY",
+          "listingExchange": "Nasdaq"
+        }
+      ]
+    },
+    {
+      "name": "Value",
+      "identities": [
+        {
+          "symbol": "CMP",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "MSFT",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "PG",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "ENB",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "DUK",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "MRK",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "KHC",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "HBI",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "XOM",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "ENB",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VZ",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VYM",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "LMT",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "AMGN",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "PEP",
+          "listingExchange": "Nasdaq"
+        }
+      ]
+    },
+    {
+      "name": "Closed End Funds",
+      "identities": [
+        {
+          "symbol": "EXD",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "BSTZ",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "IDE",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "AIO",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "BDJ",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "MFD",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Diversification",
+      "identities": [
+        {
+          "symbol": "TECIX",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "VWEAX",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "XLK",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VB",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VTI",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VEU",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "DODFX",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "GLTR",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "DLS",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VFSUX",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "DBC",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VWO",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "FNDF",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "PHYZX",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "JMSIX",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "CEMB",
+          "listingExchange": "BATS"
+        },
+        {
+          "symbol": "FNDA",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SPY",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SCHP",
+          "listingExchange": "NYSE"
+        }
+      ]
+    }
+  ]
+}

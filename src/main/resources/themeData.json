@@ -1,0 +1,766 @@
+{
+  "themeData": [
+    {
+      "name": "Cash",
+      "identities": [
+        {
+          "symbol": "CASH",
+          "listingExchange": "Cash"
+        }
+      ]
+    },
+    {
+      "name": "Gold & Silver",
+      "identities": [
+        {
+          "symbol": "GDX",
+          "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "SLV",
+          "listingExchange": "ARCA"
+        }
+      ]
+    },
+    {
+      "name": "Argentina",
+      "identities": [
+        {
+          "symbol": "CRESY",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "PAM",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "CEPU",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "LOMA",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "BMA",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Offshore Oil & Gas",
+      "identities": [
+        {
+          "symbol": "SUBCo",
+          "listingExchange": "OSE"
+        },
+        {
+          "symbol": "RIG",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "NOV",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "TDW",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "CGGBT",
+          "listingExchange": "SBF"
+        },
+        {
+          "symbol": "CGG",
+          "listingExchange": "SBF"
+        },
+        {
+          "symbol": "FTI",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "HLX",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol" : "TDW",
+          "listingExchange" : "AMEX"
+        },
+        {
+          "symbol" : "TDW WS",
+          "listingExchange" : "AMEX"
+        },
+        {
+          "symbol": "TDW WS B",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "RES",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Russian Oil & Gas",
+      "identities": [
+        {
+          "symbol": "LKOD",
+          "listingExchange": "VALUE"
+        },
+        {
+          "symbol": "ATAD",
+          "listingExchange": "LSEIOB1"
+        }
+      ]
+    },
+    {
+      "name": "Copper",
+      "identities": [
+        {
+          "symbol": "ALK",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "FCX",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "RXM",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "SURG",
+          "listingExchange": "VENTURE"
+        },
+        {
+          "symbol": "TRQ",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Base Metals",
+      "identities": [
+        {
+          "symbol": "GME",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "KAL",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "WSA",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "AVL",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "JRV",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "LGO",
+          "listingExchange": "TSE"
+        },
+        {
+          "symbol": "MCR",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "POS",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "AFM",
+          "listingExchange": "VENTURE"
+        },
+        {
+          "symbol": "PAN",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "ELBM",
+          "listingExchange": "VENTURE"
+        },
+        {
+          "symbol": "KALAF",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "ARL",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "COB",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "KRR",
+          "listingExchange": "ASX"
+        }
+      ]
+    },
+    {
+      "name": "Rare Earth Metals",
+      "identities": [
+        {
+          "symbol": "SCY",
+          "listingExchange": "TSE"
+        },
+        {
+          "symbol": "IPG",
+          "listingExchange": "VENTURE"
+        },
+        {
+          "symbol": "ARU",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "REMX",
+          "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "NB",
+          "listingExchange": "TSE"
+        },
+        {
+          "symbol": "SLR",
+          "listingExchange": "ASX"
+        }
+      ]
+    },
+    {
+      "name": "Coal",
+      "identities": [
+        {
+          "symbol": "1171",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "1088",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "ARCH",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SMR",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "NHC",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "1898",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "WHC",
+          "listingExchange": "ASX"
+        }
+      ]
+    },
+    {
+      "name": "Uranium",
+      "identities": [
+        {
+          "symbol": "UUUU",
+          "listingExchange": "AMEX"
+        },
+        {
+          "symbol": "BMN",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "FCU",
+          "listingExchange": "TSE"
+        },
+        {
+          "symbol": "BOE",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "PDN",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "DYL",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "URG",
+          "listingExchange": "AMEX"
+        }
+      ]
+    },
+    {
+      "name": "Eastern Europe",
+      "identities": [
+        {
+          "symbol": "RSXJ",
+          "listingExchange": "BATS"
+        },
+        {
+          "symbol": "EPOL",
+          "listingExchange": "ARCA"
+        }
+      ]
+    },
+    {
+      "name": "Japan",
+      "identities": [
+        {
+          "symbol": "DXJ",
+          "listingExchange": "ARCA"
+        }
+      ]
+    },
+    {
+      "name": "IRA",
+      "identities": [
+        {
+          "symbol": "DLEA",
+          "listingExchange": "TASE"
+        },
+        {
+          "symbol": "ASB",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "BSE",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "1985",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "1623",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "2102",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "1277",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "639",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "SCOP",
+          "listingExchange": "TASE"
+        },
+        {
+          "symbol": "3339",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "1631",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "543",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "GLRS",
+          "listingExchange": "TASE"
+        },
+        {
+          "symbol": "KNOP",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "ARYT",
+          "listingExchange": "TASE"
+        },
+        {
+          "symbol": "2233",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "EVR",
+          "listingExchange": "LSE"
+        },
+        {
+          "symbol": "GOGL",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "NVT",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "SVST",
+          "listingExchange": "LSE"
+        },
+        {
+          "symbol" : "SVST",
+          "listingExchange" : "VALUE"
+        },
+        {
+          "symbol": "2368",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "OEX",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "IMB",
+          "listingExchange": "LSE"
+        },
+        {
+          "symbol": "2686",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "KRUR",
+          "listingExchange": "TASE"
+        },
+        {
+          "symbol": "3315",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "1921",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "NTO",
+          "listingExchange": "TASE"
+        },
+        {
+          "symbol": "CLBV",
+          "listingExchange": "TASE"
+        },
+        {
+          "symbol": "CCU",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "ETL",
+          "listingExchange": "SBF"
+        },
+        {
+          "symbol": "CTS",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "1540",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "GRIN",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "MNDO",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "ARH",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "BAK",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "BWLPGo",
+          "listingExchange": "OSE"
+        },
+        {
+          "symbol": "MYE",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "PBR",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "6033",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "HAFNIo",
+          "listingExchange": "OSE"
+        },
+        {
+          "symbol": "386",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "GLTR",
+          "listingExchange": "LSEIOB1"
+        },
+        {
+          "symbol": "LIF",
+          "listingExchange": "TSE"
+        },
+        {
+          "symbol": "113",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "TOA",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "ETL",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "OETo",
+          "listingExchange": "OSE"
+        },
+        {
+          "symbol": "1050",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "BTI",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "RE4",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "3326",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "2386",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "610",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "PAY",
+          "listingExchange": "LSE"
+        },
+        {
+          "symbol": "VK",
+          "listingExchange": "SBF"
+        },
+        {
+          "symbol": "255",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "SPNTC",
+          "listingExchange": "TASE"
+        },
+        {
+          "symbol": "KVT",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "EURN",
+          "listingExchange": "ENEXT.BE"
+        },
+        {
+          "symbol": "LTX",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "934",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "INK",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "MFD",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "RMN",
+          "listingExchange": "TASE"
+        },
+        {
+          "symbol": "1576",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "6885",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "GRR",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "TRMD",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "TGS",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "1612",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "NWX",
+          "listingExchange": "VENTURE"
+        },
+        {
+          "symbol": "8616",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "536",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "2198",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "IRL",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "MNOD",
+          "listingExchange": "LSEIOB1"
+        }
+      ]
+    },
+    {
+      "name": "Agriculture",
+      "identities": [
+        {
+          "symbol": "ICL",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "AGRO",
+          "listingExchange": "LSEIOB1"
+        },
+        {
+          "symbol": "E5H",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "F34",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "PHOR.MR2",
+          "listingExchange": "CORPACT"
+        },
+        {
+          "symbol": "PHOR.NEW",
+          "listingExchange": "LSE"
+        },
+        {
+          "symbol": "MOS",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "297",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "NTR",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SDFd",
+          "listingExchange": "IBIS"
+        },
+        {
+          "symbol": "KER",
+          "listingExchange": "WSE"
+        }
+      ]
+    },
+    {
+      "name": "Shipping",
+      "identities": [
+        {
+          "symbol": "ASC",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "STNG",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "DHT",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "TNK",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SBLK",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "EURN",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "GNK",
+          "listingExchange": "NYSE"
+        },{
+          "symbol" : "TNP",
+          "listingExchange" : "NYSE"
+        },{
+          "symbol" : "INSW",
+          "listingExchange" : "NYSE"
+        },
+        {
+          "symbol": "2343",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "FRO",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Natural Gas",
+      "identities": [
+        {
+          "symbol": "RRC",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "CNX",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "AR",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SWN",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "EQT",
+          "listingExchange": "NYSE"
+        }
+      ]
+    }
+  ]
+}
