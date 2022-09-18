@@ -15,7 +15,7 @@ import kotlin.io.path.bufferedWriter
 
 class Schwab {
 
-    fun parseFile(filename: String): FlexStatements {
+    fun parseFile(filename: String, workFolder: String, staticData: String): FlexStatements {
         if (File(filename).exists()) {
             println("Schwab File found ${filename}")
         } else {
@@ -28,12 +28,14 @@ class Schwab {
         enhanceCashPositions(flexStatements)
         countAccountsPositions(flexStatements)
         lookupExchanges(flexStatements)
+        writeUniqueThemes(flexStatements, "${workFolder}extractedSchwabThemes.json")
+        populateThemeName(flexStatements, mapIdentityLookup(loadThemeData("${staticData}themeDataSchwab.json")))
         return flexStatements
     }
 
     fun countAccountsPositions(flexStatements: FlexStatements) {
-        var accountCount = 0;
-        var positionCount = 0;
+        var accountCount = 0
+        var positionCount = 0
         for (flexStatment in flexStatements.flexStatement) {
             accountCount++
             for (openPosition in flexStatment.openPositions.openPosition) {
@@ -89,14 +91,13 @@ class Schwab {
     fun readSchwab(filename: String): List<SchwabData> {
         println("********* READING SCHWAB ${filename}")
         //val csvMapper = CsvMapper.builder().disable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY)
-        val csvMapper = CsvMapper();
-        val schema = CsvSchema.emptySchema().withHeader();
+        val csvMapper = CsvMapper()
         val simpleModule = SimpleModule()
         simpleModule.addDeserializer(SchwabData::class.java, SchwabDataDeserializer())
         csvMapper.registerModule(simpleModule)
         val reader = csvMapper.readerWithSchemaFor(SchwabData::class.java)
         FileReader(filename).use {
-            var list = reader.readValues<SchwabData>(it).readAll()
+            val list = reader.readValues<SchwabData>(it).readAll()
             for (item in list) {
                 println(item)
             }
@@ -105,10 +106,9 @@ class Schwab {
 
     }
     fun enhanceCashPositions(flexStatements: FlexStatements) {
-        val start = System.currentTimeMillis()
         for (flexStatment in flexStatements.flexStatement) {
             for (openPosition in flexStatment.openPositions.openPosition) {
-                if (openPosition?.symbol!!.startsWith("CASH", ignoreCase = true)) {
+                if (openPosition.symbol!!.startsWith("CASH", ignoreCase = true)) {
                     openPosition.symbol = "CASH"
                     openPosition.listingExchange = "Cash"
                     openPosition.costBasisPrice = 0.0
@@ -129,7 +129,7 @@ class Schwab {
         val start = System.currentTimeMillis()
         for (flexStatment in flexStatements.flexStatement) {
             for (openPosition in flexStatment.openPositions.openPosition) {
-                if (!openPosition?.symbol!!.startsWith("CASH", ignoreCase = true)) {
+                if (!openPosition.symbol!!.startsWith("CASH", ignoreCase = true)) {
                     openPosition.listingExchange = fetchExchange(openPosition.symbol)
                     if (openPosition.listingExchange!!.startsWith("Nasdaq", true)) {
                         openPosition.listingExchange = "Nasdaq"
@@ -177,10 +177,10 @@ class Schwab {
     }
 
     fun schwabToFlexStatement(schwabList: List<SchwabData>): FlexStatements {
-        var flexStatements = FlexStatements();
+        var flexStatements = FlexStatements()
         for (schwabData in schwabList) {
             val flexStatement = findOrCreateOpenPosition(schwabData.account, flexStatements)
-            var openPosition = OpenPosition()
+            val openPosition = OpenPosition()
             flexStatement.openPositions.openPosition.add(openPosition)
             openPosition.accountId = schwabData.account
             openPosition.acctAlias = schwabData.account

@@ -634,6 +634,9 @@
         {
           "symbol": "IRL",
           "listingExchange": "WSE"
+        },{
+          "symbol" : "CRML",
+          "listingExchange" : "TASE"
         },
         {
           "symbol": "MNOD",

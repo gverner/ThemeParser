@@ -2,6 +2,7 @@ package jaxb
 
 class OpenPosition {
     var broker = ""
+    var themeGroup = ""
     var accountId: String? = null
     var acctAlias: String? = null
     var currency: String? = null

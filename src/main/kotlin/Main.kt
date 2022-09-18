@@ -6,30 +6,45 @@ import java.io.*
 import java.util.*
 
 
-
 fun main(args: Array<String>) {
-    println("Convert Brokerage Extracts")
+    val inputFolder = "/users/glennverner/Downloads"
+    val staticData = "src/main/resources/"
+    val outputFolder = "src/test/resources/"
+    val workFolder = "build/theme-work/"
+
+    println("Convert Brokerage Extracts inputFolder=${inputFolder}  outputFolder=${outputFolder}  workFolder=${workFolder}")
     // Try adding program arguments via Run/Debug configuration.
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")
-    //write();
+    File(workFolder).mkdir()
+
     val ib = InteractiveBrokers()
-    var flexQueryResponse = ib.parseFile(scanFolder(folder = "/users/glennverner/Downloads", prefix = "queryPlusCash"))
-    writeFlatPositionsCSV(flexQueryResponse, "src/test/resources/positions.csv")
+    val flexQueryResponse = ib.parseFile(
+        scanFolder(folder = inputFolder, prefix = "queryPlusCash"),
+        workFolder = workFolder,
+        staticData = staticData
+    )
+    //writeFlatPositionsCSV(flexQueryResponse, "src/test/resources/positions.csv")
     val schwab = Schwab()
     val schwabFlexStatements =
-        schwab.parseFile(scanFolder("/users/glennverner/Downloads", prefix = "All-Accounts-Positions"))
-    writeUniqueThemes(schwabFlexStatements, "src/test/resources/extractedSchwabThemes.json")
-    populateThemeName(schwabFlexStatements, mapIdentityLookup(loadThemeData("src/main/resources/themeDataSchwab.json")))
+        schwab.parseFile(
+            scanFolder(inputFolder, prefix = "All-Accounts-Positions"),
+            workFolder = workFolder,
+            staticData = staticData
+        )
+
+    val insiderThemes = createThemeSet(loadThemeData("${staticData}themeData.json"))
     flexQueryResponse.flexStatements.flexStatement.addAll(schwabFlexStatements.flexStatement)
-    writeFlatPositionsCSV(flexQueryResponse, "src/test/resources/positions2.csv")
+    populateThemeGroup(flexQueryResponse.flexStatements, insiderThemes)
+    populateDescription(flexQueryResponse.flexStatements)
+    writeFlatPositionsCSV(flexQueryResponse, "${outputFolder}positions2.csv")
 }
 
-fun scanFolder(folder: String, prefix: String) : String {
+fun scanFolder(folder: String, prefix: String): String {
     var filename = ""
     var fullFilename = ""
     val regex = """(?i)\b(i|xml|csv)\b""".toRegex()
-    File(folder).walk( FileWalkDirection.TOP_DOWN).forEach { it ->
+    File(folder).walk(FileWalkDirection.TOP_DOWN).forEach { it ->
         if (it.name.startsWith(prefix = prefix, ignoreCase = true)) {
             println(it.nameWithoutExtension)
             if (regex.containsMatchIn(it.extension) && it.nameWithoutExtension >= filename) {
@@ -60,7 +75,6 @@ fun writeFlatPositionsCSV(flexQueryResponse: FlexQueryResponse, filename: String
 }
 
 
-
 fun buildCashPositions(cashReport: CashReport): List<OpenPosition> {
     val openPositions = ArrayList<OpenPosition>()
     for (cashReportCurrency: CashReportCurrency in cashReport.cashReportCurrency) {
@@ -78,13 +92,34 @@ fun buildCashPositions(cashReport: CashReport): List<OpenPosition> {
     return openPositions
 }
 
-
+fun populateThemeGroup(flexStatements: FlexStatements, themeSet: Set<String>) {
+    for (statement in flexStatements.flexStatement.listIterator()) {
+        for (position in statement.openPositions.openPosition.listIterator()) {
+            if ("CASH".equals(position.themeName, ignoreCase = true)) {
+                position.themeGroup = "other"
+            } else if ("IRA".equals(position.themeName, ignoreCase = true)) {
+                    position.themeGroup = "other"
+            } else if (themeSet.contains(position.themeName)) {
+                position.themeGroup = "insider"
+            } else {
+                position.themeGroup = "other"
+            }
+        }
+    }
+}
+fun populateDescription(flexStatements: FlexStatements) {
+    for (statement in flexStatements.flexStatement.listIterator()) {
+        for (position in statement.openPositions.openPosition.listIterator()) {
+            position.description = position.symbol!!.padEnd(5) + ": " + position.description
+        }
+    }
+}
 fun populateThemeName(flexStatements: FlexStatements, identityMap: Map<String, Theme>) {
     for (statement in flexStatements.flexStatement.listIterator()) {
         for (position in statement.openPositions.openPosition.listIterator()) {
             position.themeName = identityMap.get(position.symbol?.substringBefore(" ") + position.listingExchange)?.name
             if (position.themeName == "") {
-                println("Theme Not Found for "+ position.symbol)
+                println("Theme Not Found for " + position.symbol)
             }
         }
     }
@@ -106,7 +141,15 @@ fun mapIdentityLookup(themeData: ThemeData): Map<String, Theme> {
     return identityMap
 }
 
-
+fun createThemeSet(themeData: ThemeData): Set<String> {
+    val themeSet = HashSet<String>()
+    for (theme in themeData.themeData!!.listIterator()) {
+        for (idenity in theme.identities) {
+            themeSet.add(theme.name!!)
+        }
+    }
+    return themeSet
+}
 
 fun writeThemesXML(themeData: ThemeData, filename: String) {
     val xm = XmlMapper().writerWithDefaultPrettyPrinter()
@@ -123,7 +166,7 @@ fun writeThemesCSV(themeResponse: Themes) {
     val CSV_MAPPER = CsvMapper()
     val altSchema = CSV_MAPPER.schemaFor(Identity::class.java).withHeader()
     StringWriter().use {
-        var seqW = CSV_MAPPER.writer(altSchema).writeValues(it);
+        val seqW = CSV_MAPPER.writer(altSchema).writeValues(it)
         for (theme in themeResponse.theme!!) {
             for (holding in theme.identities) {
                 seqW.write(holding)
@@ -134,12 +177,9 @@ fun writeThemesCSV(themeResponse: Themes) {
 }
 
 fun writeUniqueThemes(flexStatements: FlexStatements, filename: String) {
-    var themes = extractUniqueThemes(flexStatements)
+    val themes = extractUniqueThemes(flexStatements)
 
-    val exchangeSet = unigueExchanges(themes)
-    val nameSet = nameSortedSet(themes)
-
-    var themeData = ThemeData()
+    val themeData = ThemeData()
     themeData.themeData = themes.values.toList()
     if (filename.endsWith("xml", ignoreCase = true)) {
         writeThemesXML(themeData, filename)
@@ -149,10 +189,10 @@ fun writeUniqueThemes(flexStatements: FlexStatements, filename: String) {
 }
 
 private fun unigueExchanges(themes: HashMap<String, Theme>): SortedSet<String> {
-    val exchanges = HashSet<String>();
+    val exchanges = HashSet<String>()
     for (theme in themes.values) {
         for (identity in theme.identities.listIterator()) {
-            exchanges.add(identity.listingExchange!!)
+            exchanges.add(identity.listingExchange)
         }
     }
     return exchanges.toSortedSet()
@@ -160,7 +200,7 @@ private fun unigueExchanges(themes: HashMap<String, Theme>): SortedSet<String> {
 
 
 private fun nameSortedSet(themes: HashMap<String, Theme>): SortedSet<String> {
-    val names = HashSet<String>();
+    val names = HashSet<String>()
     for (theme in themes.values) {
         names.add(theme.name!!)
     }
@@ -188,16 +228,16 @@ private fun extractUniqueThemes(flexStatements: FlexStatements): HashMap<String,
     }
 // IRA theme only when not part of one of the other themes
     val iraThemes = HashMap<String, Theme>()
-    for (statement in flexStatements!!.flexStatement!!.listIterator()) {
+    for (statement in flexStatements.flexStatement.listIterator()) {
         val iraIdentities = HashMap<String, Identity>()
-        for (position in statement.openPositions!!.openPosition!!.listIterator()) {
+        for (position in statement.openPositions.openPosition.listIterator()) {
             if ("IRA".equals(position.acctAlias)) {
                 val identity = Identity()
                 identity.symbol = position.symbol!!
                 identity.listingExchange = position.listingExchange!!
                 // if not in the other themes then add to IraThemes
                 if (null == allIdentities.get(identity.id())) {
-                    var theme = iraThemes.get(position.acctAlias) ?: Theme()
+                    val theme = iraThemes.get(position.acctAlias) ?: Theme()
                     theme.name = position.acctAlias
                     iraThemes.put(theme.name!!, theme)
                     iraIdentities.put(identity.symbol + identity.listingExchange, identity)

@@ -1,12 +1,12 @@
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
-import jaxb.*
+import jaxb.FlexQueryResponse
+import jaxb.OpenPositions
 import java.io.File
-import java.util.*
 import javax.xml.stream.XMLInputFactory
 
 class InteractiveBrokers {
 
-    fun parseFile(filename: String): FlexQueryResponse {
+    fun parseFile(filename: String, workFolder: String, staticData: String): FlexQueryResponse {
         if (!File(filename).exists()) {
             println("Interactive Brokers File NOT Found")
             return FlexQueryResponse()
@@ -14,12 +14,12 @@ class InteractiveBrokers {
             println("Interactive Brokers File ${filename}")
         }
         val flexQueryResponse: FlexQueryResponse = import(filename)
-        writeUniqueThemes(flexQueryResponse.flexStatements, "src/test/resources/extractedIBThemes.json")
+        writeUniqueThemes(flexQueryResponse.flexStatements, "${workFolder}extractedIBThemes.json")
         calcUSDFields(flexQueryResponse)
         addCashPositions(flexQueryResponse)
         populateThemeName(
             flexQueryResponse.flexStatements,
-            mapIdentityLookup(loadThemeData("src/main/resources/themeData.json"))
+            mapIdentityLookup(loadThemeData("${staticData}themeData.json"))
         )
         return flexQueryResponse
     }
@@ -55,7 +55,6 @@ class InteractiveBrokers {
 
     fun import(filename: String): FlexQueryResponse {
         val xm = XmlMapper()
-        val xif: XMLInputFactory = XMLInputFactory.newInstance()
         val query = xm.readValue(File(filename), FlexQueryResponse::class.java)
         return query
     }
