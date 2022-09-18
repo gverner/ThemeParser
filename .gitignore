@@ -19,3 +19,6 @@ gradle-app.setting
 /src/test/resources/extractedSchwabThemes.json
 /src/test/resources/positions.csv
 /src/test/resources/positions2.csv
+/src/test/resources/Theme20220910.xlsx
+/src/test/resources/~$Theme20220910.xlsx
+/src/main/resources/extractedSchwabThemes.json
