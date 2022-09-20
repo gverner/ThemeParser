@@ -44,7 +44,7 @@ fun scanFolder(folder: String, prefix: String): String {
     var filename = ""
     var fullFilename = ""
     val regex = """(?i)\b(i|xml|csv)\b""".toRegex()
-    File(folder).walk(FileWalkDirection.TOP_DOWN).forEach { it ->
+    File(folder).walk(FileWalkDirection.TOP_DOWN).forEach {
         if (it.name.startsWith(prefix = prefix, ignoreCase = true)) {
             println(it.nameWithoutExtension)
             if (regex.containsMatchIn(it.extension) && it.nameWithoutExtension >= filename) {
@@ -161,20 +161,6 @@ fun writeThemesJson(themeData: ThemeData, filename: String) {
     objectMapper.writeValue(File(filename), themeData)
 }
 
-fun writeThemesCSV(themeResponse: Themes) {
-    println("********* WRITE THEMES CSV")
-    val CSV_MAPPER = CsvMapper()
-    val altSchema = CSV_MAPPER.schemaFor(Identity::class.java).withHeader()
-    StringWriter().use {
-        val seqW = CSV_MAPPER.writer(altSchema).writeValues(it)
-        for (theme in themeResponse.theme!!) {
-            for (holding in theme.identities) {
-                seqW.write(holding)
-            }
-        }
-        println(it)
-    }
-}
 
 fun writeUniqueThemes(flexStatements: FlexStatements, filename: String) {
     val themes = extractUniqueThemes(flexStatements)
@@ -188,24 +174,6 @@ fun writeUniqueThemes(flexStatements: FlexStatements, filename: String) {
     }
 }
 
-private fun unigueExchanges(themes: HashMap<String, Theme>): SortedSet<String> {
-    val exchanges = HashSet<String>()
-    for (theme in themes.values) {
-        for (identity in theme.identities.listIterator()) {
-            exchanges.add(identity.listingExchange)
-        }
-    }
-    return exchanges.toSortedSet()
-}
-
-
-private fun nameSortedSet(themes: HashMap<String, Theme>): SortedSet<String> {
-    val names = HashSet<String>()
-    for (theme in themes.values) {
-        names.add(theme.name!!)
-    }
-    return names.toSortedSet()
-}
 
 private fun extractUniqueThemes(flexStatements: FlexStatements): HashMap<String, Theme> {
     val themes = HashMap<String, Theme>()
