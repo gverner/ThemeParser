@@ -1,7 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
-import com.fasterxml.jackson.dataformat.csv.CsvSchema
 import jaxb.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -74,6 +73,7 @@ class Schwab {
                                 headerWritten = true
                             }
                         } else if (line.indexOf("Account Total") == 1) {
+                            // skip Account Total
                         } else {
                             out.append(currentAccount)
                             out.append(',')
@@ -177,7 +177,7 @@ class Schwab {
     }
 
     fun schwabToFlexStatement(schwabList: List<SchwabData>): FlexStatements {
-        var flexStatements = FlexStatements()
+        val flexStatements = FlexStatements()
         for (schwabData in schwabList) {
             val flexStatement = findOrCreateOpenPosition(schwabData.account, flexStatements)
             val openPosition = OpenPosition()
