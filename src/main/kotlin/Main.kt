@@ -7,7 +7,7 @@ import java.util.*
 
 
 fun main(args: Array<String>) {
-    val inputFolder = "/users/glennverner/Downloads"
+    val inputFolder = "/users/gvern/Downloads"
     val staticData = "src/main/resources/"
     val outputFolder = "src/test/resources/"
     val workFolder = "build/theme-work/"
@@ -34,6 +34,7 @@ fun main(args: Array<String>) {
         )
 
     val insiderThemes = createThemeSet(loadThemeData("${staticData}themeData.json"))
+
     flexQueryResponse.flexStatements.flexStatement.addAll(schwabFlexStatements.flexStatement)
     populateThemeGroup(flexQueryResponse.flexStatements, insiderThemes)
     populateDescription(flexQueryResponse.flexStatements)
@@ -62,6 +63,7 @@ fun writeFlatPositionsCSV(flexQueryResponse: FlexQueryResponse, filename: String
 
     val CSV_MAPPER = CsvMapper()
     val altSchema = CSV_MAPPER.schemaFor(OpenPosition::class.java).withHeader()
+    println(filename)
     StringWriter().use {
         val csvOutputFile = File(filename)
         val seqW = CSV_MAPPER.writer(altSchema)
@@ -148,6 +150,8 @@ fun createThemeSet(themeData: ThemeData): Set<String> {
             themeSet.add(theme.name!!)
         }
     }
+    // schwab theme
+    themeSet.add("Oil & Gas Producers")
     return themeSet
 }
 
