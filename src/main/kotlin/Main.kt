@@ -4,10 +4,10 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import jaxb.*
 import java.io.*
 import java.util.*
-
+import kotlin.collections.HashSet
 
 fun main(args: Array<String>) {
-    val inputFolder = "/users/gvern/Downloads"
+    val inputFolder = "/users/glennverner/Downloads"
     val staticData = "src/main/resources/"
     val outputFolder = "src/test/resources/"
     val workFolder = "build/theme-work/"
@@ -28,7 +28,7 @@ fun main(args: Array<String>) {
     val schwab = Schwab()
     val schwabFlexStatements =
         schwab.parseFile(
-            scanFolder(inputFolder, prefix = "All-Accounts-Positions"),
+            scanFolder(inputFolder, prefix = "RETIREMENT-Positions"),
             workFolder = workFolder,
             staticData = staticData
         )
@@ -88,20 +88,23 @@ fun buildCashPositions(cashReport: CashReport): List<OpenPosition> {
         openPosition.listingExchange = "Cash"
         openPosition.symbol = "CASH"
         openPosition.broker = "IB"
-        openPosition.baseMoney = cashReportCurrency.endingCash
+        openPosition.usdCashInvestments = cashReportCurrency.endingCash
         openPositions.add(openPosition)
     }
     return openPositions
 }
 
 fun populateThemeGroup(flexStatements: FlexStatements, themeSet: Set<String>) {
+    val manualInsiderTheme: HashSet<String> = HashSet( listOf("Dollar"))
     for (statement in flexStatements.flexStatement.listIterator()) {
         for (position in statement.openPositions.openPosition.listIterator()) {
             if ("CASH".equals(position.themeName, ignoreCase = true)) {
-                position.themeGroup = "other"
+                position.themeGroup = "cash"
             } else if ("IRA".equals(position.themeName, ignoreCase = true)) {
                     position.themeGroup = "other"
             } else if (themeSet.contains(position.themeName)) {
+                position.themeGroup = "insider"
+            } else if (manualInsiderTheme.contains(position.themeName)) {
                 position.themeGroup = "insider"
             } else {
                 position.themeGroup = "other"
@@ -112,7 +115,7 @@ fun populateThemeGroup(flexStatements: FlexStatements, themeSet: Set<String>) {
 fun populateDescription(flexStatements: FlexStatements) {
     for (statement in flexStatements.flexStatement.listIterator()) {
         for (position in statement.openPositions.openPosition.listIterator()) {
-            position.description = position.symbol!!.padEnd(5) + ": " + position.description
+            position.description = position.symbol!!.padEnd(5, ' ') + "- "+ position.description+ " " + position.listingExchange
         }
     }
 }
@@ -120,8 +123,8 @@ fun populateThemeName(flexStatements: FlexStatements, identityMap: Map<String, T
     for (statement in flexStatements.flexStatement.listIterator()) {
         for (position in statement.openPositions.openPosition.listIterator()) {
             position.themeName = identityMap.get(position.symbol?.substringBefore(" ") + position.listingExchange)?.name
-            if (position.themeName == "") {
-                println("Theme Not Found for " + position.symbol)
+            if (position.themeName == "" || null == position.themeName) {
+                println("Theme Not Found for " + position.symbol+ " Exch "+position.listingExchange)
             }
         }
     }

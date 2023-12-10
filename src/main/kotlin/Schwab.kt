@@ -13,6 +13,7 @@ import kotlin.io.path.Path
 import kotlin.io.path.bufferedWriter
 
 class Schwab {
+    val exchangeCache = HashMap<String, String>()
 
     fun parseFile(filename: String, workFolder: String, staticData: String): FlexStatements {
         if (File(filename).exists()) {
@@ -27,6 +28,8 @@ class Schwab {
         enhanceCashPositions(flexStatements)
         countAccountsPositions(flexStatements)
         lookupExchanges(flexStatements)
+        val themeData = loadThemeData("${staticData}themeDataSchwab.json")
+        lookupExchangesFromThemeData(flexStatements, themeData)
         writeUniqueThemes(flexStatements, "${workFolder}extractedSchwabThemes.json")
         populateThemeName(flexStatements, mapIdentityLookup(loadThemeData("${staticData}themeDataSchwab.json")))
         return flexStatements
@@ -54,17 +57,20 @@ class Schwab {
         val output = Path(workFilename)
         output.bufferedWriter().use { out ->
             input.forEachLine { line ->
-
-                if (line.indexOf(',') < 0) {
-                    if (line.length > 0) {
-                        currentAccount = line.trim()
+                line.count { it == 'e' }
+                val c = "\"\"".toRegex().findAll(line).count()
+                if (c == 17) {
+                } else if (c == 16) {
+                    if (line.indexOf("Positions") == 1) {
+                        reportDate = line.substringAfter(',', reportDate.trim())
+                        reportDate = reportDate.substringBefore(',', reportDate.trim())
+                        reportDate = "\"" + reportDate.trim()
+                    } else {
+                        currentAccount = line.substringBefore("\",\"") + "\""
                     }
-                } else {
-                    if (line.length > 0) {
-                        if (line.indexOf("Positions") == 1) {
-                            reportDate = line.substringAfterLast(',', reportDate.trim())
-                            reportDate = "\"" + reportDate.trim()
-                        } else if (line.indexOf("Symbol") == 1) {
+                } else
+                 {
+                        if (line.indexOf("Symbol") == 1) {
                             if (!headerWritten) {
                                 out.append("\"Account\"")
                                 out.append(',')
@@ -80,7 +86,6 @@ class Schwab {
                             out.append(line.replace("$", "").replace("%", ""))
                             out.newLine()
                         }
-                    }
 
                 }
             }
@@ -108,16 +113,19 @@ class Schwab {
     fun enhanceCashPositions(flexStatements: FlexStatements) {
         for (flexStatment in flexStatements.flexStatement) {
             for (openPosition in flexStatment.openPositions.openPosition) {
-                if (openPosition.symbol!!.startsWith("CASH", ignoreCase = true)) {
+                if (openPosition.symbol!!.startsWith("CASH", ignoreCase = true)|| openPosition.symbol!!.startsWith("SWVXX", ignoreCase = true)) {
                     openPosition.symbol = "CASH"
                     openPosition.listingExchange = "Cash"
                     openPosition.costBasisPrice = 0.0
                     openPosition.baseGainLoss = 0.0
                     openPosition.baseCostBasisPrice = 0.0
-                    openPosition.baseCostBasisMoney = 0.0
                     openPosition.fxRateToBase = 1.0
                     openPosition.baseMarkPrice = 1.0
                     openPosition.markPrice = 1.0
+                    openPosition.baseCostBasisMoney = openPosition.baseMoney
+                    openPosition.usdCashInvestments = openPosition.baseMoney
+                    //openPosition.baseCostBasisMoney = 0.0
+                    //openPosition.baseMoney = 0.0
                 }
 
             }
@@ -125,13 +133,30 @@ class Schwab {
     }
 
     fun lookupExchanges(flexStatements: FlexStatements) {
+        println("fetching exchanges 1")
+        val start = System.currentTimeMillis()
+        for (flexStatment in flexStatements.flexStatement) {
+            for (openPosition in flexStatment.openPositions.openPosition) {
+                    openPosition.listingExchange = "NONE"
+            }
+        }
+        println("completed Fetching Exchanges seconds=${(System.currentTimeMillis() - start) / 1000}")
+    }
+    fun lookupExchangesFromThemeData(flexStatements: FlexStatements, themeData: ThemeData ) {
         println("fetching exchanges")
+        val symbolMap = createSymbol2ExchangeMap(themeData)
         val start = System.currentTimeMillis()
         for (flexStatment in flexStatements.flexStatement) {
             for (openPosition in flexStatment.openPositions.openPosition) {
                 if (!openPosition.symbol!!.startsWith("CASH", ignoreCase = true)) {
-                    openPosition.listingExchange = fetchExchange(openPosition.symbol)
-                    if (openPosition.listingExchange!!.startsWith("Nasdaq", true)) {
+                    if (openPosition.symbol!!.length > 10) {
+                        openPosition.listingExchange = "NYSE"
+                    } else {
+                        openPosition.listingExchange = symbolMap.get(openPosition.symbol)
+                    }
+                    if (openPosition.listingExchange == null || openPosition.listingExchange.isNullOrBlank()){
+                        println("Exchange not found "+openPosition.symbol)
+                    } else if (openPosition.listingExchange!!.startsWith("Nasdaq", true)) {
                         openPosition.listingExchange = "Nasdaq"
                     } else if (openPosition.listingExchange!!.startsWith("NYSE", true)) {
                         openPosition.listingExchange = "NYSE"
@@ -142,9 +167,42 @@ class Schwab {
         println("completed Fetching Exchanges seconds=${(System.currentTimeMillis() - start) / 1000}")
     }
 
+    fun createSymbol2ExchangeMap(themeData: ThemeData): Map<String, String> {
+        val exchangeMap = HashMap<String, String>()
+        for (theme in themeData.themeData!!) {
+            for (identity in theme.identities) {
+                exchangeMap.put(identity.symbol, identity.listingExchange)
+            }
+        }
+        return exchangeMap
+    }
+
+    fun lookupExchangesOld(flexStatements: FlexStatements) {
+        println("fetching exchanges")
+        val start = System.currentTimeMillis()
+        for (flexStatment in flexStatements.flexStatement) {
+            for (openPosition in flexStatment.openPositions.openPosition) {
+                if (!openPosition.symbol!!.startsWith("CASH", ignoreCase = true)) {
+                    openPosition.listingExchange = fetchExchange(openPosition.symbol)
+                    if (openPosition.listingExchange!!.startsWith("Nasdaq", true)) {
+                        openPosition.listingExchange = "Nasdaq"
+                    } else if (openPosition.listingExchange!!.startsWith("NYSE", true)) {
+                        openPosition.listingExchange = "NYSE"
+                    } else if (openPosition.listingExchange == null || openPosition.listingExchange.isNullOrBlank()){
+                        println("Exchange not found "+openPosition.symbol)
+                    }
+                }
+            }
+        }
+        println("completed Fetching Exchanges seconds=${(System.currentTimeMillis() - start) / 1000}")
+    }
+
     fun fetchExchange(symbol: String?): String {
          if (symbol == null)  {
             return ""
+        }
+        if (exchangeCache.get(symbol) != null) {
+            return exchangeCache.get(symbol).toString()
         }
         println(symbol)
         if (symbol.length > 10) {
@@ -170,6 +228,7 @@ class Schwab {
         val objData = mapperAll.readTree(responseBody)
         objData.get("quoteSummary")!!.get("result").get(0).get("price").fields().forEach {
             if ("exchangeName".equals(it.key)) {
+                exchangeCache.put(symbol, it.value.textValue())
                 return it.value.textValue()
             }
         }

@@ -1,6 +1,72 @@
 {
   "themeData": [
     {
+      "name": "zHold",
+      "identities": [
+        {
+          "symbol": "SVST",
+          "listingExchange": "VALUE"
+        },
+        {
+          "symbol": "EVR",
+          "listingExchange": "LSE"
+        },
+        {
+          "symbol": "GLTR",
+          "listingExchange": "LSEIOB1"
+        },
+        {
+          "symbol": "MNOD",
+          "listingExchange": "LSEIOB1"
+        },
+        {
+          "symbol": "MNOD",
+          "listingExchange": "VALUE"
+        },
+        {
+          "symbol": "SVST",
+          "listingExchange": "LSE"
+        },
+        {
+          "symbol": "IRL",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "CTS",
+          "listingExchange": "WSE"
+        }
+      ]
+    },
+    {
+      "name": "zHold Russian Oil & Gas",
+      "identities": [
+        {
+          "symbol": "LKOD",
+          "listingExchange": "VALUE"
+        },
+        {
+          "symbol": "ATAD",
+          "listingExchange": "LSEIOB1"
+        }
+      ]
+    },
+    {
+      "name": "zHold Eastern Europe",
+      "identities": [
+        {
+          "symbol": "RSXJ",
+          "listingExchange": "BATS"
+        },{
+          "symbol" : "RSXJ",
+          "listingExchange" : "VALUE"
+        },
+        {
+          "symbol": "EPOL",
+          "listingExchange": "ARCA"
+        }
+      ]
+    },
+    {
       "name": "Cash",
       "identities": [
         {
@@ -18,6 +84,10 @@
         },
         {
           "symbol": "SLV",
+          "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "SGOL",
           "listingExchange": "ARCA"
         }
       ]
@@ -51,6 +121,61 @@
       "name": "Offshore Oil & Gas",
       "identities": [
         {
+          "symbol" : "OII",
+          "listingExchange" : "NYSE"
+        },        {
+          "symbol" : "5LY",
+          "listingExchange" : "SGX"
+        },        {
+          "symbol" : "M05",
+          "listingExchange" : "SGX"
+        },        {
+          "symbol" : "NO4",
+          "listingExchange" : "SGX"
+        },        {
+          "symbol" : "S51",
+          "listingExchange" : "SGX"
+        },        {
+          "symbol" : "DO",
+          "listingExchange" : "NYSE"
+        },
+        {
+          "symbol" : "CET",
+          "listingExchange" : "TSE"
+        },
+        {
+          "symbol" : "KLXE",
+          "listingExchange" : "NASDAQ"
+        },
+        {
+          "symbol" : "GIFI",
+          "listingExchange" : "NASDAQ"
+        },
+        {
+          "symbol": "TGS",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "NINE",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "OIS",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "XPRO",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "1623",
+          "listingExchange": "SEHK"
+        },
+        {
+          "symbol": "VK",
+          "listingExchange": "SBF"
+        },
+        {
           "symbol": "SUBCo",
           "listingExchange": "OSE"
         },
@@ -83,12 +208,12 @@
           "listingExchange": "NYSE"
         },
         {
-          "symbol" : "TDW",
-          "listingExchange" : "AMEX"
+          "symbol": "TDW",
+          "listingExchange": "AMEX"
         },
         {
-          "symbol" : "TDW WS",
-          "listingExchange" : "AMEX"
+          "symbol": "TDW WS",
+          "listingExchange": "AMEX"
         },
         {
           "symbol": "TDW WS B",
@@ -97,19 +222,14 @@
         {
           "symbol": "RES",
           "listingExchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "name": "Russian Oil & Gas",
-      "identities": [
-        {
-          "symbol": "LKOD",
-          "listingExchange": "VALUE"
         },
         {
-          "symbol": "ATAD",
-          "listingExchange": "LSEIOB1"
+          "symbol": "PGSo",
+          "listingExchange": "OSE"
+        },
+        {
+          "symbol": "GEOS",
+          "listingExchange": "NASDAQ"
         }
       ]
     },
@@ -134,13 +254,29 @@
         },
         {
           "symbol": "TRQ",
-          "listingExchange": "NYSE"
+          "listingExchange": "VALUE"
         }
       ]
     },
     {
       "name": "Base Metals",
       "identities": [
+        {
+          "symbol" : "AXN",
+          "listingExchange" : "ASX"
+        },
+        {
+          "symbol": "COB.RTS7",
+          "listingExchange": "CORPACT"
+        },
+        {
+          "symbol": "JRV.RTS7",
+          "listingExchange": "CORPACT"
+        },
+        {
+          "symbol": "JRV.RTS8",
+          "listingExchange": "CORPACT"
+        },
         {
           "symbol": "GME",
           "listingExchange": "ASX"
@@ -168,6 +304,10 @@
         {
           "symbol": "MCR",
           "listingExchange": "ASX"
+        },
+        {
+          "symbol": "MCR",
+          "listingExchange": "VALUE"
         },
         {
           "symbol": "POS",
@@ -229,12 +369,20 @@
         {
           "symbol": "SLR",
           "listingExchange": "ASX"
+        },
+        {
+          "symbol": "SRL",
+          "listingExchange": "ASX"
         }
       ]
     },
     {
       "name": "Coal",
       "identities": [
+        {
+          "symbol": "1171.BON",
+          "listingExchange": "CORPACT"
+        },
         {
           "symbol": "1171",
           "listingExchange": "SEHK"
@@ -295,24 +443,15 @@
         {
           "symbol": "URG",
           "listingExchange": "AMEX"
-        }
-      ]
-    },
-    {
-      "name": "Eastern Europe",
-      "identities": [
-        {
-          "symbol": "RSXJ",
-          "listingExchange": "BATS"
         },
         {
-          "symbol": "EPOL",
+          "symbol": "URNM",
           "listingExchange": "ARCA"
         }
       ]
     },
     {
-      "name": "Japan",
+      "name": "zJapan",
       "identities": [
         {
           "symbol": "DXJ",
@@ -337,10 +476,6 @@
         },
         {
           "symbol": "1985",
-          "listingExchange": "SEHK"
-        },
-        {
-          "symbol": "1623",
           "listingExchange": "SEHK"
         },
         {
@@ -388,24 +523,12 @@
           "listingExchange": "SEHK"
         },
         {
-          "symbol": "EVR",
-          "listingExchange": "LSE"
-        },
-        {
           "symbol": "GOGL",
           "listingExchange": "NASDAQ"
         },
         {
           "symbol": "NVT",
           "listingExchange": "WSE"
-        },
-        {
-          "symbol": "SVST",
-          "listingExchange": "LSE"
-        },
-        {
-          "symbol" : "SVST",
-          "listingExchange" : "VALUE"
         },
         {
           "symbol": "2368",
@@ -452,10 +575,6 @@
           "listingExchange": "SBF"
         },
         {
-          "symbol": "CTS",
-          "listingExchange": "WSE"
-        },
-        {
           "symbol": "1540",
           "listingExchange": "SEHK"
         },
@@ -476,10 +595,6 @@
           "listingExchange": "NYSE"
         },
         {
-          "symbol": "BWLPGo",
-          "listingExchange": "OSE"
-        },
-        {
           "symbol": "MYE",
           "listingExchange": "ASX"
         },
@@ -492,16 +607,8 @@
           "listingExchange": "SEHK"
         },
         {
-          "symbol": "HAFNIo",
-          "listingExchange": "OSE"
-        },
-        {
           "symbol": "386",
           "listingExchange": "SEHK"
-        },
-        {
-          "symbol": "GLTR",
-          "listingExchange": "LSEIOB1"
         },
         {
           "symbol": "LIF",
@@ -518,10 +625,6 @@
         {
           "symbol": "ETL",
           "listingExchange": "WSE"
-        },
-        {
-          "symbol": "OETo",
-          "listingExchange": "OSE"
         },
         {
           "symbol": "1050",
@@ -550,10 +653,6 @@
         {
           "symbol": "PAY",
           "listingExchange": "LSE"
-        },
-        {
-          "symbol": "VK",
-          "listingExchange": "SBF"
         },
         {
           "symbol": "255",
@@ -604,14 +703,6 @@
           "listingExchange": "ASX"
         },
         {
-          "symbol": "TRMD",
-          "listingExchange": "NASDAQ"
-        },
-        {
-          "symbol": "TGS",
-          "listingExchange": "NYSE"
-        },
-        {
           "symbol": "1612",
           "listingExchange": "SEHK"
         },
@@ -632,15 +723,8 @@
           "listingExchange": "SEHK"
         },
         {
-          "symbol": "IRL",
-          "listingExchange": "WSE"
-        },{
-          "symbol" : "CRML",
-          "listingExchange" : "TASE"
-        },
-        {
-          "symbol": "MNOD",
-          "listingExchange": "LSEIOB1"
+          "symbol": "CRML",
+          "listingExchange": "TASE"
         }
       ]
     },
@@ -697,6 +781,30 @@
       "name": "Shipping",
       "identities": [
         {
+          "symbol": "BWLPGo",
+          "listingExchange": "OSE"
+        },
+        {
+          "symbol": "HAFNIo",
+          "listingExchange": "OSE"
+        },
+        {
+          "symbol": "TRMD",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "OETo",
+          "listingExchange": "OSE"
+        },
+        {
+          "symbol": "EURN",
+          "listingExchange": "ENEXT.BE"
+        },
+        {
+          "symbol": "EURN",
+          "listingExchange": "NYSE"
+        },
+        {
           "symbol": "ASC",
           "listingExchange": "NYSE"
         },
@@ -717,18 +825,16 @@
           "listingExchange": "NASDAQ"
         },
         {
-          "symbol": "EURN",
+          "symbol": "GNK",
           "listingExchange": "NYSE"
         },
         {
-          "symbol": "GNK",
+          "symbol": "TNP",
           "listingExchange": "NYSE"
-        },{
-          "symbol" : "TNP",
-          "listingExchange" : "NYSE"
-        },{
-          "symbol" : "INSW",
-          "listingExchange" : "NYSE"
+        },
+        {
+          "symbol": "INSW",
+          "listingExchange": "NYSE"
         },
         {
           "symbol": "2343",

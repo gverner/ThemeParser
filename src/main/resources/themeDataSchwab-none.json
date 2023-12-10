@@ -1,0 +1,531 @@
+{
+  "themeData": [
+    {
+      "name": "Cash",
+      "identities": [
+        {
+          "symbol": "CASH",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "SWVXX",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Dollar",
+      "identities": [
+        {
+          "symbol": "UUP",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Base Metals",
+      "identities": [
+        {
+          "symbol": "AFMJF",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Copper",
+      "identities": [
+        {
+          "symbol": "FCX",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Agriculture",
+      "identities": [
+        {
+          "symbol": "MOO",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Coal",
+      "identities": [
+        {
+          "symbol": "BTU",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "ARCH",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Offshore Oil & Gas",
+      "identities": [
+        {
+          "symbol": "RIG",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "GEOS",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "NINE",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "CETX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "OIS",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "XPRO",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "XPRO",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "DO",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "KLXE",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "GIFI",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "TDW",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "FTI",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VAL",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "HLX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "XES",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Oil & Gas Producers",
+      "identities": [
+        {
+          "symbol": "XOP",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "NI",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "XOM",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "zHold Eastern Europe",
+      "identities": [
+        {
+          "symbol": "RSX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "RSX",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Rare Earth Metals",
+      "identities": [
+        {
+          "symbol": "REMX",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Shipping",
+      "identities": [
+        {
+          "symbol" : "TNK",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "EURN",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol" : "FRO",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "SBLK",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "STNG",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "DHT",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "GNK",
+          "listingExchange": "NONE"
+        },{
+          "symbol" : "TNP",
+          "listingExchange": "NONE"
+        },{
+          "symbol" : "INSW",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "ASC",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Uranium",
+      "identities": [
+        {
+          "symbol": "URNM",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "URG",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Gold & Silver",
+      "identities": [
+        {
+          "symbol": "GDX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "SLV",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "PHYS",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "GLD",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "GLTR",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "SGOL",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Agriculture",
+      "identities": [
+        {
+          "symbol": "MOS",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "NTR",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Bonds",
+      "identities": [
+        {
+          "symbol": "DODIX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "DODIX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "FBKWX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "FBKWX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "TECIX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "TECIX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VWEAX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VWEAX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "CEMB",
+          "listingExchange": "BATS"
+        },
+        {
+          "symbol": "CEMB",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "PHYZX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "JMSIX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VFSUX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VFSUX",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Argentina",
+      "identities": [
+        {
+          "symbol": "PAM",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "CRESY",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Value",
+      "identities": [
+        {
+          "symbol" : "TSLA",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VTI",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "SCHD",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "DODFX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "DODFX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "CMP",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "MSFT",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "PG",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "ENB",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "DUK",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "MRK",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "KHC",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "HBI",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "ENB",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VZ",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VYM",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "LMT",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "AMGN",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "PEP",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Closed End Funds",
+      "identities": [
+        {
+        "symbol" : "ETJ",
+        "listingExchange": "NONE"
+      },
+        {
+          "symbol": "EXD",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "BSTZ",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "IDE",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "AIO",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "BDJ",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "MFD",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "ETV",
+          "listingExchange": "NONE"
+        }
+      ]
+    },
+    {
+      "name": "Diversification",
+      "identities": [
+        {
+          "symbol": "XLK",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VB",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VEU",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "DLS",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "DBC",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "VWO",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "FNDF",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "FNDA",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "SPY",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "SCHP",
+          "listingExchange": "NONE"
+        }
+
+      ]
+    },
+    {
+      "name": "Natural Gas",
+      "identities": [
+        {
+          "symbol": "RRC",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "CNX",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "AR",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "SWN",
+          "listingExchange": "NONE"
+        },
+        {
+          "symbol": "EQT",
+          "listingExchange": "NONE"
+        }
+        ]
+    }
+  ]
+}

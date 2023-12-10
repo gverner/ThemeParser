@@ -24,6 +24,7 @@ class OpenPosition {
     var baseGainLoss = 0.0
     var positionValue = 0.0
     var fifoPnlUnrealized = 0.0
+    var usdCashInvestments = 0.0
 
     override fun toString(): String {
         return "Account ('$accountId') Alias ('$acctAlias') Symbol ('$symbol') "
