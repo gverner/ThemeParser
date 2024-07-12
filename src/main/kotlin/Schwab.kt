@@ -31,7 +31,7 @@ class Schwab {
         val themeData = loadThemeData("${staticData}themeDataSchwab.json")
         lookupExchangesFromThemeData(flexStatements, themeData)
         writeUniqueThemes(flexStatements, "${workFolder}extractedSchwabThemes.json")
-        populateThemeName(flexStatements, mapIdentityLookup(loadThemeData("${staticData}themeDataSchwab.json")))
+        populateThemeName(flexStatements, mapIdentityLookup(themeData), mapSymbolLookup(themeData))
         return flexStatements
     }
 
@@ -44,7 +44,7 @@ class Schwab {
                 positionCount++
             }
         }
-        println("Schwab Imported ${accountCount} Accounts with ${positionCount} Posistions")
+        println("Schwab Imported ${accountCount} Accounts with ${positionCount} Positions")
     }
 
     fun prepareFile(filename: String): String {
@@ -103,8 +103,11 @@ class Schwab {
         val reader = csvMapper.readerWithSchemaFor(SchwabData::class.java)
         FileReader(filename).use {
             val list = reader.readValues<SchwabData>(it).readAll()
-            for (item in list) {
-                println(item)
+            println ("Schwab parse logging disabled?")
+            if (1==2) {
+                for (item in list) {
+                    println(item)
+                }
             }
             return list
         }
@@ -155,7 +158,8 @@ class Schwab {
                         openPosition.listingExchange = symbolMap.get(openPosition.symbol)
                     }
                     if (openPosition.listingExchange == null || openPosition.listingExchange.isNullOrBlank()){
-                        println("Exchange not found "+openPosition.symbol)
+                        println("Exchange not found #2 "+openPosition.symbol + " default = NYSE")
+                        openPosition.listingExchange = "NYSE"
                     } else if (openPosition.listingExchange!!.startsWith("Nasdaq", true)) {
                         openPosition.listingExchange = "Nasdaq"
                     } else if (openPosition.listingExchange!!.startsWith("NYSE", true)) {
@@ -189,7 +193,8 @@ class Schwab {
                     } else if (openPosition.listingExchange!!.startsWith("NYSE", true)) {
                         openPosition.listingExchange = "NYSE"
                     } else if (openPosition.listingExchange == null || openPosition.listingExchange.isNullOrBlank()){
-                        println("Exchange not found "+openPosition.symbol)
+                        println("Exchange not found #1 "+openPosition.symbol + " default = NYSE")
+                        openPosition.listingExchange = "NYSE"
                     }
                 }
             }

@@ -20,7 +20,12 @@ fun main(args: Array<String>) {
 
     val ib = InteractiveBrokers()
     val flexQueryResponse = ib.parseFile(
-        scanFolder(folder = inputFolder, prefix = "queryPlusCash"),
+        scanFolder(folder = inputFolder, prefix = "queryPlusCashGlenn"),
+        workFolder = workFolder,
+        staticData = staticData
+    )
+    val flexQueryResponseAndrea = ib.parseFile(
+        scanFolder(folder = inputFolder, prefix = "queryPlusCashAndrea"),
         workFolder = workFolder,
         staticData = staticData
     )
@@ -35,6 +40,7 @@ fun main(args: Array<String>) {
 
     val insiderThemes = createThemeSet(loadThemeData("${staticData}themeData.json"))
 
+    flexQueryResponse.flexStatements.flexStatement.addAll(flexQueryResponseAndrea.flexStatements.flexStatement)
     flexQueryResponse.flexStatements.flexStatement.addAll(schwabFlexStatements.flexStatement)
     populateThemeGroup(flexQueryResponse.flexStatements, insiderThemes)
     populateDescription(flexQueryResponse.flexStatements)
@@ -89,19 +95,31 @@ fun buildCashPositions(cashReport: CashReport): List<OpenPosition> {
         openPosition.symbol = "CASH"
         openPosition.broker = "IB"
         openPosition.usdCashInvestments = cashReportCurrency.endingCash
-        openPositions.add(openPosition)
+        openPosition.baseCostBasisMoney = cashReportCurrency.endingCash
+        openPosition.baseMoney = cashReportCurrency.endingCash
+        if (cashReportCurrency.currency.equals("BASE_SUMMARY", true)) {
+            openPositions.add(openPosition)
+        } else {
+            println("Ignoring account ${openPosition.accountId} ${openPosition.acctAlias} cash currency ${cashReportCurrency.currency }  ${cashReportCurrency.endingCash})")
+        }
     }
     return openPositions
 }
 
 fun populateThemeGroup(flexStatements: FlexStatements, themeSet: Set<String>) {
     val manualInsiderTheme: HashSet<String> = HashSet( listOf("Dollar"))
+    val otherThemeNames: HashSet<String> = HashSet(listOf("Diversification","Value","Bonds"))
+    val allIras: HashSet<String> = HashSet(listOf("Andrea Roth", "Glenn IRA-1", "Glenn Roth", "IRA Andrea"))
     for (statement in flexStatements.flexStatement.listIterator()) {
         for (position in statement.openPositions.openPosition.listIterator()) {
             if ("CASH".equals(position.themeName, ignoreCase = true)) {
                 position.themeGroup = "cash"
             } else if ("IRA".equals(position.themeName, ignoreCase = true)) {
                     position.themeGroup = "other"
+//            } else if (otherThemeNames.contains(position.themeName)) {
+//                position.themeGroup = "other"
+            } else if (allIras.contains(position.acctAlias)) {
+                position.themeGroup = "allIRA"
             } else if (themeSet.contains(position.themeName)) {
                 position.themeGroup = "insider"
             } else if (manualInsiderTheme.contains(position.themeName)) {
@@ -112,6 +130,7 @@ fun populateThemeGroup(flexStatements: FlexStatements, themeSet: Set<String>) {
         }
     }
 }
+
 fun populateDescription(flexStatements: FlexStatements) {
     for (statement in flexStatements.flexStatement.listIterator()) {
         for (position in statement.openPositions.openPosition.listIterator()) {
@@ -119,12 +138,28 @@ fun populateDescription(flexStatements: FlexStatements) {
         }
     }
 }
-fun populateThemeName(flexStatements: FlexStatements, identityMap: Map<String, Theme>) {
+fun populateThemeName(flexStatements: FlexStatements, identityMap: Map<String, Theme>, symbolMap: Map<String, Theme>) {
+    //reportDuplicateSymbols(identityMap)
     for (statement in flexStatements.flexStatement.listIterator()) {
         for (position in statement.openPositions.openPosition.listIterator()) {
             position.themeName = identityMap.get(position.symbol?.substringBefore(" ") + position.listingExchange)?.name
             if (position.themeName == "" || null == position.themeName) {
-                println("Theme Not Found for " + position.symbol+ " Exch "+position.listingExchange)
+                position.themeName = symbolMap.get(position.symbol)?.name
+                println("Theme Not Found for in idMap " + position.symbol+ " Exch "+ position.listingExchange + " using symbolMap " + symbolMap.get(position.symbol)?.name)
+            }
+        }
+    }
+}
+
+fun reportDuplicateSymbols(identityMap: Map<String, Theme>) {
+    println("report duplicates")
+    val symbols = HashSet<String>()
+    for (theme in identityMap.values) {
+        theme.identities.forEach { identity ->
+//            println (" theam $theme symbol ${identity.symbol}")
+            val symbol = identity.symbol
+            if (!symbols.add(symbol)) {
+                println("Duplicate Symbol found in theme $theme symbol $symbol :: ${identity.symbol} ${identity.listingExchange}")
             }
         }
     }
@@ -145,7 +180,24 @@ fun mapIdentityLookup(themeData: ThemeData): Map<String, Theme> {
     }
     return identityMap
 }
-
+fun mapSymbolLookup(themeData: ThemeData): Map<String, Theme> {
+    val symbolMap = HashMap<String, Theme>()
+    var symbolsInMultipleExchanges = 0
+    for (theme in themeData.themeData!!.listIterator()) {
+        for (idenity in theme.identities) {
+            val dup = symbolMap.put(idenity.symbol, theme)
+            if (dup!= null) {
+                if (dup.name != theme.name) {
+                    println("duplicate symbol theme ${dup} unable to add ${idenity.symbol} : ${idenity.listingExchange} ${theme.name}")
+                } else {
+                    symbolsInMultipleExchanges++
+                }
+            }
+        }
+    }
+    println("Symbols in multiple exchanges but in same theme "+symbolsInMultipleExchanges)
+    return symbolMap
+}
 fun createThemeSet(themeData: ThemeData): Set<String> {
     val themeSet = HashSet<String>()
     for (theme in themeData.themeData!!.listIterator()) {

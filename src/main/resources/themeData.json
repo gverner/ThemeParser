@@ -12,10 +12,6 @@
           "listingExchange": "LSE"
         },
         {
-          "symbol": "GLTR",
-          "listingExchange": "LSEIOB1"
-        },
-        {
           "symbol": "MNOD",
           "listingExchange": "LSEIOB1"
         },
@@ -56,9 +52,14 @@
         {
           "symbol": "RSXJ",
           "listingExchange": "BATS"
-        },{
-          "symbol" : "RSXJ",
-          "listingExchange" : "VALUE"
+        },
+        {
+          "symbol": "RSXJ",
+          "listingExchange": "VALUE"
+        },
+        {
+          "symbol": "RSX",
+          "listingExchange": "VALUE"
         },
         {
           "symbol": "EPOL",
@@ -79,6 +80,14 @@
       "name": "Gold & Silver",
       "identities": [
         {
+          "symbol": "GLTR",
+          "listingExchange": "LSEIOB1"
+        },
+        {
+          "symbol": "GLTR",
+          "listingExchange": "ARCA"
+        },
+        {
           "symbol": "GDX",
           "listingExchange": "ARCA"
         },
@@ -88,6 +97,14 @@
         },
         {
           "symbol": "SGOL",
+          "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "GLD",
+          "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "PHYS",
           "listingExchange": "ARCA"
         }
       ]
@@ -114,6 +131,18 @@
         {
           "symbol": "BMA",
           "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "YPF",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "IRS",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "BBAR",
+          "listingExchange": "NYSE"
         }
       ]
     },
@@ -121,35 +150,56 @@
       "name": "Offshore Oil & Gas",
       "identities": [
         {
-          "symbol" : "OII",
-          "listingExchange" : "NYSE"
-        },        {
-          "symbol" : "5LY",
-          "listingExchange" : "SGX"
-        },        {
-          "symbol" : "M05",
-          "listingExchange" : "SGX"
-        },        {
-          "symbol" : "NO4",
-          "listingExchange" : "SGX"
-        },        {
-          "symbol" : "S51",
-          "listingExchange" : "SGX"
-        },        {
-          "symbol" : "DO",
+          "symbol" : "TEN",
           "listingExchange" : "NYSE"
         },
         {
-          "symbol" : "CET",
-          "listingExchange" : "TSE"
+          "symbol": "DU4",
+          "listingExchange": "SGX"
         },
         {
-          "symbol" : "KLXE",
-          "listingExchange" : "NASDAQ"
+          "symbol": "VAL",
+          "listingExchange": "NYSE"
         },
         {
-          "symbol" : "GIFI",
-          "listingExchange" : "NASDAQ"
+          "symbol": "OII",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "5LY",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "M05",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "NO4",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "S51",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "8L9W",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "DO",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "CET",
+          "listingExchange": "TSE"
+        },
+        {
+          "symbol": "KLXE",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "GIFI",
+          "listingExchange": "NASDAQ"
         },
         {
           "symbol": "TGS",
@@ -230,6 +280,42 @@
         {
           "symbol": "GEOS",
           "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "SPEA",
+          "listingExchange": "BVME"
+        },
+        {
+          "symbol": "KAR",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "AOI",
+          "listingExchange": "TSE"
+        },
+        {
+          "symbol": "GENL",
+          "listingExchange": "LSE"
+        },
+        {
+          "symbol": "CRK",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SUBCY",
+          "listingExchange": "PINK"
+        },
+        {
+          "symbol": "5E2",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "EB5",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "XES",
+          "listingExchange": "ARCA"
         }
       ]
     },
@@ -255,6 +341,14 @@
         {
           "symbol": "TRQ",
           "listingExchange": "VALUE"
+        },
+        {
+          "symbol": "COPX",
+          "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "DBB",
+          "listingExchange": "ARCA"
         }
       ]
     },
@@ -262,8 +356,12 @@
       "name": "Base Metals",
       "identities": [
         {
-          "symbol" : "AXN",
-          "listingExchange" : "ASX"
+          "symbol": "RXM.RTS1",
+          "listingExchange": "CORPACT"
+        },
+        {
+          "symbol": "AXN",
+          "listingExchange": "ASX"
         },
         {
           "symbol": "COB.RTS7",
@@ -380,7 +478,11 @@
       "name": "Coal",
       "identities": [
         {
-          "symbol": "1171.BON",
+          "symbol": "YAL",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "1171.REC",
           "listingExchange": "CORPACT"
         },
         {
@@ -410,6 +512,22 @@
         {
           "symbol": "WHC",
           "listingExchange": "ASX"
+        },
+        {
+          "symbol": "CKA",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "CRN",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "TGA",
+          "listingExchange": "LSE"
+        },
+        {
+          "symbol": "BTU",
+          "listingExchange": "NYSE"
         }
       ]
     },
@@ -447,11 +565,15 @@
         {
           "symbol": "URNM",
           "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "U.UN",
+          "listingExchange": "TSE"
         }
       ]
     },
     {
-      "name": "zJapan",
+      "name": "Japan",
       "identities": [
         {
           "symbol": "DXJ",
@@ -774,6 +896,10 @@
         {
           "symbol": "KER",
           "listingExchange": "WSE"
+        },
+        {
+          "symbol": "IPI",
+          "listingExchange": "NYSE"
         }
       ]
     },
@@ -795,14 +921,6 @@
         {
           "symbol": "OETo",
           "listingExchange": "OSE"
-        },
-        {
-          "symbol": "EURN",
-          "listingExchange": "ENEXT.BE"
-        },
-        {
-          "symbol": "EURN",
-          "listingExchange": "NYSE"
         },
         {
           "symbol": "ASC",
@@ -868,6 +986,191 @@
         {
           "symbol": "EQT",
           "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "CHK",
+          "listingExchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "name": "Greece",
+      "identities": [
+        {
+          "symbol": "GREK",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "GREK",
+          "listingExchange": "ARCA"
+        }
+      ]
+    },
+    {
+      "name": "Diversification",
+      "identities": [
+        {
+          "symbol": "XLK",
+          "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "VB",
+          "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "VEU",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "DLS",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "DBC",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VWO",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "FNDF",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "FNDA",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SPY",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SCHP",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "DODFX",
+          "listingExchange": "Nasdaq"
+        }
+      ]
+    },
+    {
+      "name": "Value",
+      "identities": [
+        {
+          "symbol": "TSLA",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "VTI",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SCHD",
+          "listingExchange": "ARCH"
+        },
+        {
+          "symbol": "CMP",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "MSFT",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "PG",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "ENB",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "DUK",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "MRK",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "KHC",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "HBI",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "ENB",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VZ",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VYM",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VYM",
+          "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "LMT",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "AMGN",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "PEP",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "QCOM",
+          "listingExchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "name": "Oil & Gas Producers",
+      "identities": [
+        {
+          "symbol": "XOP",
+          "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "USO",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "NI",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "XOM",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Bonds",
+      "identities": [
+        {
+          "symbol": "DODIX",
+          "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "DODIX",
+          "listingExchange": "Other OTC"
+        },
+        {
+          "symbol": "FBKWX",
+          "listingExchange": "Nasdaq"
         }
       ]
     }

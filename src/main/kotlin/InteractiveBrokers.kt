@@ -16,9 +16,11 @@ class InteractiveBrokers {
         writeUniqueThemes(flexQueryResponse.flexStatements, "${workFolder}extractedIBThemes.json")
         calcUSDFields(flexQueryResponse)
         this.addCashPositions(flexQueryResponse)
+        val themeData =loadThemeData("${staticData}themeData.json")
         populateThemeName(
             flexQueryResponse.flexStatements,
-            mapIdentityLookup(loadThemeData("${staticData}themeData.json"))
+            mapIdentityLookup(themeData),
+            mapSymbolLookup(themeData)
         )
         return flexQueryResponse
     }
@@ -39,6 +41,8 @@ class InteractiveBrokers {
                 baseMarkPrice = markPrice * fxRateToBase
                 if (!symbol.equals("CASH", ignoreCase = true)) {
                     baseMoney = positionValue * fxRateToBase
+                } else {
+           //         baseMoney = positionValue * fxRateToBase
                 }
                 baseGainLoss = fifoPnlUnrealized * fxRateToBase
             }

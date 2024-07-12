@@ -335,7 +335,12 @@
         {
           "symbol": "CRESY",
           "listingExchange": "NONE"
+        },
+        {
+          "symbol": "YPF",
+          "listingExchange": "NYSE"
         }
+
       ]
     },
     {

@@ -132,6 +132,9 @@
         {
           "symbol": "SUBCY",
           "listingExchange": "Other OTC"
+        },{
+          "symbol" : "AOIFF",
+          "listingExchange" : "NYSE"
         }
       ]
     },
@@ -347,6 +350,22 @@
         {
           "symbol": "CRESY",
           "listingExchange": "Nasdaq"
+        },
+        {
+          "symbol": "YPF",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "IRS",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "CEPU",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "BMA",
+          "listingExchange": "NYSE"
         }
       ]
     },
@@ -541,6 +560,24 @@
           "listingExchange": "NYSE"
         }
         ]
+    },
+    {
+      "name": "Japan",
+      "identities": [
+        {
+          "symbol": "DXJ",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "name": "Greece",
+      "identities": [
+        {
+          "symbol": "GREK",
+          "listingExchange": "NYSE"
+        }
+      ]
     }
   ]
 }
