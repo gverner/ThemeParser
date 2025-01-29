@@ -11,8 +11,8 @@ class FlexStatement {
 
     @JsonProperty("CashReport")
     var cashReport: CashReport = CashReport()
-
     var accountId: String? = null
+
     var fromDate = 0
     var toDate = 0
     var period: String? = null

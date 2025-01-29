@@ -4,6 +4,7 @@ class OpenPosition {
     var broker = ""
     var themeGroup = ""
     var accountId: String? = null
+    var accountType: String = ""
     var acctAlias: String? = null
     var currency: String? = null
     var symbol: String? = null

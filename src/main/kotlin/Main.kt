@@ -7,7 +7,7 @@ import java.util.*
 import kotlin.collections.HashSet
 
 fun main(args: Array<String>) {
-    val inputFolder = "/users/glennverner/Downloads"
+    val inputFolder = "/users/gvern/Downloads"
     val staticData = "src/main/resources/"
     val outputFolder = "src/test/resources/"
     val workFolder = "build/theme-work/"
@@ -43,6 +43,7 @@ fun main(args: Array<String>) {
     flexQueryResponse.flexStatements.flexStatement.addAll(flexQueryResponseAndrea.flexStatements.flexStatement)
     flexQueryResponse.flexStatements.flexStatement.addAll(schwabFlexStatements.flexStatement)
     populateThemeGroup(flexQueryResponse.flexStatements, insiderThemes)
+    populateAccountType(flexQueryResponse.flexStatements)
     populateDescription(flexQueryResponse.flexStatements)
     writeFlatPositionsCSV(flexQueryResponse, "${outputFolder}positions2.csv")
 }
@@ -109,17 +110,19 @@ fun buildCashPositions(cashReport: CashReport): List<OpenPosition> {
 fun populateThemeGroup(flexStatements: FlexStatements, themeSet: Set<String>) {
     val manualInsiderTheme: HashSet<String> = HashSet( listOf("Dollar"))
     val otherThemeNames: HashSet<String> = HashSet(listOf("Diversification","Value","Bonds"))
-    val allIras: HashSet<String> = HashSet(listOf("Andrea Roth", "Glenn IRA-1", "Glenn Roth", "IRA Andrea"))
+    //val allIras: HashSet<String> = HashSet(listOf("Andrea Roth", "Glenn IRA-1", "Glenn Roth", "IRA Andrea"))
     for (statement in flexStatements.flexStatement.listIterator()) {
         for (position in statement.openPositions.openPosition.listIterator()) {
             if ("CASH".equals(position.themeName, ignoreCase = true)) {
                 position.themeGroup = "cash"
             } else if ("IRA".equals(position.themeName, ignoreCase = true)) {
                     position.themeGroup = "other"
-//            } else if (otherThemeNames.contains(position.themeName)) {
-//                position.themeGroup = "other"
-            } else if (allIras.contains(position.acctAlias)) {
-                position.themeGroup = "allIRA"
+            } else if (otherThemeNames.contains(position.themeName)) {
+                position.themeGroup = "other"
+//            } else if (allIras.contains(position.acctAlias)) {
+//                position.themeGroup = "allIRA"
+            } else if (position.themeName != null && position.themeName!!.startsWith("z", true)) {
+                position.themeGroup = "Sanctioned or Delisted"
             } else if (themeSet.contains(position.themeName)) {
                 position.themeGroup = "insider"
             } else if (manualInsiderTheme.contains(position.themeName)) {
@@ -127,6 +130,32 @@ fun populateThemeGroup(flexStatements: FlexStatements, themeSet: Set<String>) {
             } else {
                 position.themeGroup = "other"
             }
+        }
+    }
+}
+
+fun populateAccountType(flexStatements: FlexStatements) {
+//    val iraAccounts: HashSet<String> = HashSet(listOf("IRA Andrea", "Glenn IRA-1", "U7277264 M Asy Verner"));
+//    val rothAccounts: HashSet<String> = HashSet(listOf("Andrea Roth", "Glenn Roth"));
+//    val taxableAccounts: HashSet<String> = HashSet(listOf("Glenn_Andrea ...649","Offshore Oil & Gas","Main Uranium","Glenn and Andrea Joint","Russian Oil & Gas","Argentina","Base Metals & Copper","Agriculture","Shipping","Coal", "Natural Gas","Eastern Europe and Japan","Gold & Silver"))
+    // U19463890	Andrea Roth
+    // U19478447	IRA Andrea
+    // U19474002	Glenn IRA-1
+    // U19455041	Glenn Roth
+    // U7277264	    U7277264 M Asy Verner
+   val iraAccounts: HashSet<String> = HashSet(listOf("U7277264", "U19474002", "U19478447"))
+    val rothAccounts: HashSet<String> = HashSet(listOf("U19455041", "U19463890"))
+
+    for (statement in flexStatements.flexStatement.listIterator()) {
+        for (position in statement.openPositions.openPosition.listIterator()) {
+            if (iraAccounts.contains(position.accountId)) {
+                position.accountType = "ira"
+            } else
+                if (rothAccounts.contains(position.accountId)) {
+                    position.accountType = "roth"
+                } else {
+                    position.accountType = "taxable"
+                }
         }
     }
 }

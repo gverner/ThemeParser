@@ -30,6 +30,14 @@
         {
           "symbol": "CTS",
           "listingExchange": "WSE"
+        },
+        {
+          "symbol": "PAN",
+          "listingExchange": "ASX"
+        },
+        {
+          "symbol": "PAN",
+          "listingExchange": "Value"
         }
       ]
     },
@@ -43,6 +51,15 @@
         {
           "symbol": "ATAD",
           "listingExchange": "LSEIOB1"
+        }
+      ]
+    },
+    {
+      "name": "China",
+      "identities": [
+        {
+          "symbol": "KWEB",
+          "listingExchange": "ARCA"
         }
       ]
     },
@@ -77,11 +94,15 @@
       ]
     },
     {
-      "name": "Gold & Silver",
+      "name": "Precious Metals",
       "identities": [
         {
           "symbol": "GLTR",
           "listingExchange": "LSEIOB1"
+        },
+        {
+          "symbol": "GLTR.OLD",
+          "listingExchange": "VALUE"
         },
         {
           "symbol": "GLTR",
@@ -106,6 +127,10 @@
         {
           "symbol": "PHYS",
           "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "SBSW",
+          "listingExchange": "NYSE"
         }
       ]
     },
@@ -150,7 +175,19 @@
       "name": "Offshore Oil & Gas",
       "identities": [
         {
-          "symbol" : "TEN",
+          "symbol" : "PSCE",
+          "listingExchange" : "NASDAQ"
+        },
+        {
+          "symbol" : "3303",
+          "listingExchange" : "SEHK"
+        },
+        {
+          "symbol" : "GPRK",
+          "listingExchange" : "NYSE"
+        },
+        {
+          "symbol" : "NE",
           "listingExchange" : "NYSE"
         },
         {
@@ -183,6 +220,10 @@
         },
         {
           "symbol": "8L9W",
+          "listingExchange": "SGX"
+        },
+        {
+          "symbol": "8L9W.EXE",
           "listingExchange": "SGX"
         },
         {
@@ -239,6 +280,10 @@
         },
         {
           "symbol": "TDW",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SMHI",
           "listingExchange": "NYSE"
         },
         {
@@ -316,6 +361,10 @@
         {
           "symbol": "XES",
           "listingExchange": "ARCA"
+        },
+        {
+          "symbol": "SBMO",
+          "listingExchange": "AEB"
         }
       ]
     },
@@ -416,10 +465,6 @@
           "listingExchange": "VENTURE"
         },
         {
-          "symbol": "PAN",
-          "listingExchange": "ASX"
-        },
-        {
           "symbol": "ELBM",
           "listingExchange": "VENTURE"
         },
@@ -495,6 +540,10 @@
         },
         {
           "symbol": "ARCH",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "CNR",
           "listingExchange": "NYSE"
         },
         {
@@ -854,12 +903,20 @@
       "name": "Agriculture",
       "identities": [
         {
+          "symbol": "MHPC",
+          "listingExchange": "LSEIOB1"
+        },
+        {
           "symbol": "ICL",
           "listingExchange": "NYSE"
         },
         {
           "symbol": "AGRO",
           "listingExchange": "LSEIOB1"
+        },
+        {
+          "symbol": "AGRO.USD",
+          "listingExchange": "VALUE"
         },
         {
           "symbol": "E5H",
@@ -876,6 +933,10 @@
         {
           "symbol": "PHOR.NEW",
           "listingExchange": "LSE"
+        },
+        {
+          "symbol": "PHOR.NEW1",
+          "listingExchange": "CORPACT"
         },
         {
           "symbol": "MOS",
@@ -906,6 +967,10 @@
     {
       "name": "Shipping",
       "identities": [
+        {
+          "symbol": "TEN",
+          "listingExchange": "NYSE"
+        },
         {
           "symbol": "BWLPGo",
           "listingExchange": "OSE"
@@ -990,6 +1055,10 @@
         {
           "symbol": "CHK",
           "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol" : "EXE",
+          "listingExchange" : "NASDAQ"
         }
       ]
     },
@@ -1034,12 +1103,24 @@
           "listingExchange": "NYSE"
         },
         {
+          "symbol": "VWO",
+          "listingExchange": "ARCA"
+        },
+        {
           "symbol": "FNDF",
           "listingExchange": "NYSE"
         },
         {
+          "symbol": "FNDF",
+          "listingExchange": "ARCA"
+        },
+        {
           "symbol": "FNDA",
           "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "FNDA",
+          "listingExchange": "ARCA"
         },
         {
           "symbol": "SPY",
@@ -1133,6 +1214,10 @@
         {
           "symbol": "QCOM",
           "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "SCHD",
+          "listingExchange": "ARCA"
         }
       ]
     },
