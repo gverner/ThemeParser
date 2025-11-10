@@ -58,6 +58,10 @@
       "name": "China",
       "identities": [
         {
+          "symbol": "ECNS",
+          "listingExchange": "ARCA"
+        },
+        {
           "symbol": "KWEB",
           "listingExchange": "ARCA"
         }
@@ -131,6 +135,10 @@
         {
           "symbol": "SBSW",
           "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "VALT",
+          "listingExchange": "LSE"
         }
       ]
     },
@@ -148,6 +156,10 @@
         {
           "symbol": "CEPU",
           "listingExchange": "NYSE"
+        },
+        {
+          "symbol" : "CEPU.CNT",
+          "listingExchange" : "VALUE"
         },
         {
           "symbol": "LOMA",
@@ -336,6 +348,10 @@
         },
         {
           "symbol": "AOI",
+          "listingExchange": "TSE"
+        },
+        {
+          "symbol": "MER",
           "listingExchange": "TSE"
         },
         {
@@ -961,6 +977,14 @@
         {
           "symbol": "IPI",
           "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "AST",
+          "listingExchange": "WSE"
+        },
+        {
+          "symbol": "IMC",
+          "listingExchange": "WSE"
         }
       ]
     },
@@ -1256,6 +1280,36 @@
         {
           "symbol": "FBKWX",
           "listingExchange": "Nasdaq"
+        }
+      ]
+    },
+    {
+      "name": "Brazil",
+      "identities": [
+        {
+          "symbol" : "EWZ",
+          "listingExchange" : "ARCA"
+        }
+      ]
+    },
+    {
+      "name": "Bear Put Spread",
+      "identities": [
+        {
+          "symbol": "TLT   270115P00070000",
+          "listingExchange": "CBOE"
+        },
+        {
+          "symbol": "TLT   270115P00060000",
+          "listingExchange": "CBOE"
+        },
+        {
+          "symbol": "QQQ   280121P00400000",
+          "listingExchange": "CBOE"
+        },
+        {
+          "symbol": "QQQ   280121P00350000",
+          "listingExchange": "CBOE"
         }
       ]
     }
