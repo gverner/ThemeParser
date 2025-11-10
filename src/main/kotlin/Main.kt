@@ -31,6 +31,9 @@ fun main(args: Array<String>) {
     )
     //writeFlatPositionsCSV(flexQueryResponse, "src/test/resources/positions.csv")
     val schwab = Schwab()
+    // Glenn Andrea-Positions
+    // "RETIREMENT-Positions"
+    // "All-Accounts-Positions"
     val schwabFlexStatements =
         schwab.parseFile(
             scanFolder(inputFolder, prefix = "RETIREMENT-Positions"),
