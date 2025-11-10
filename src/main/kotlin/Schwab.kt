@@ -104,7 +104,7 @@ class Schwab {
         FileReader(filename).use {
             val list = reader.readValues<SchwabData>(it).readAll()
             println ("Schwab parse logging disabled?")
-            if (1==2) {
+            if (1==1) {
                 for (item in list) {
                     println(item)
                 }
