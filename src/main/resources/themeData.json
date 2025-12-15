@@ -283,6 +283,10 @@
           "listingExchange": "OSE"
         },
         {
+          "symbol": "SUBC",
+          "listingExchange": "OSE"
+        },
+        {
           "symbol": "RIG",
           "listingExchange": "NYSE"
         },
@@ -381,6 +385,18 @@
         {
           "symbol": "SBMO",
           "listingExchange": "AEB"
+        },
+        {
+          "symbol": "BORR",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "WFRD",
+          "listingExchange": "NASDAQ"
+        },
+        {
+          "symbol": "SPM",
+          "listingExchange": "BVME"
         }
       ]
     },
@@ -965,6 +981,10 @@
         {
           "symbol": "NTR",
           "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SDF",
+          "listingExchange": "IBIS"
         },
         {
           "symbol": "SDFd",

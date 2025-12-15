@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "account",
     "symbol",
     "description",
+    "blank",
     "quantity",
     "price",
     "priceChangeDollar",
@@ -35,6 +36,7 @@ class SchwabData {
     var account: String = ""
     var symbol: String = ""
     var description = ""
+    var blank = ""
     var quantity = 0.0
     var price = 0.0
     var priceChangeDollar = 0.0

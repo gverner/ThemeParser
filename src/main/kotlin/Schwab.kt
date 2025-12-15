@@ -58,17 +58,17 @@ class Schwab {
         output.bufferedWriter().use { out ->
             input.forEachLine { line ->
                 line.count { it == 'e' }
-                val c = "\"\"".toRegex().findAll(line).count()
-                if (c == 17) {
-                } else if (c == 16) {
+                val c = "\",\"".toRegex().findAll(line).count()
+                if (line.length == 0) {
+                } else if (c == 0) {
                     if (line.indexOf("Positions") == 1) {
                         reportDate = line.substringAfter(',', reportDate.trim())
                         reportDate = reportDate.substringBefore(',', reportDate.trim())
                         reportDate = "\"" + reportDate.trim()
                     } else {
-                        currentAccount = line.substringBefore("\",\"") + "\""
+                        currentAccount = "\"" + line.substringBefore("\",\"") + "\""
                     }
-                } else
+                } else if (c == 17)
                  {
                         if (line.indexOf("Symbol") == 1) {
                             if (!headerWritten) {
@@ -104,7 +104,7 @@ class Schwab {
         FileReader(filename).use {
             val list = reader.readValues<SchwabData>(it).readAll()
             println ("Schwab parse logging disabled?")
-            if (1==1) {
+            if (1==2) {
                 for (item in list) {
                     println(item)
                 }
