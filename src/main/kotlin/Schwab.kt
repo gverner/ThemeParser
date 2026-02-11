@@ -68,7 +68,7 @@ class Schwab {
                     } else {
                         currentAccount = "\"" + line.substringBefore("\",\"") + "\""
                     }
-                } else if (c == 17)
+                } else if (c == 16)
                  {
                         if (line.indexOf("Symbol") == 1) {
                             if (!headerWritten) {

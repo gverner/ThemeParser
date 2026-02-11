@@ -7,7 +7,7 @@ import java.util.*
 import kotlin.collections.HashSet
 
 fun main(args: Array<String>) {
-    val inputFolder = "/users/gvern/Downloads"
+    val inputFolder = "/Users/glennverner/Downloads"
     val staticData = "src/main/resources/"
     val outputFolder = "src/test/resources/"
     val workFolder = "build/theme-work/"
