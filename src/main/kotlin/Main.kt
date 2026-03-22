@@ -121,7 +121,7 @@ fun populateThemeGroup(flexStatements: FlexStatements, themeSet: Set<String>) {
             } else if ("IRA".equals(position.themeName, ignoreCase = true)) {
                     position.themeGroup = "other"
             } else if (otherThemeNames.contains(position.themeName)) {
-                position.themeGroup = "other"
+                position.themeGroup = "insider"
 //            } else if (allIras.contains(position.acctAlias)) {
 //                position.themeGroup = "allIRA"
             } else if (position.themeName != null && position.themeName!!.startsWith("z", true)) {

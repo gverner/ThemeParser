@@ -397,6 +397,10 @@
         {
           "symbol": "SPM",
           "listingExchange": "BVME"
+        },
+        {
+          "symbol": "SPMm",
+          "listingExchange": "BVME"
         }
       ]
     },
@@ -1309,6 +1313,15 @@
         {
           "symbol" : "EWZ",
           "listingExchange" : "ARCA"
+        }
+      ]
+    },
+    {
+      "name": "Chile",
+      "identities": [
+        {
+          "symbol" : "ECH",
+          "listingExchange" : "BATS"
         }
       ]
     },
