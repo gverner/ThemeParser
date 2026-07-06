@@ -36,7 +36,7 @@ fun main(args: Array<String>) {
     // "All-Accounts-Positions"
     val schwabFlexStatements =
         schwab.parseFile(
-            scanFolder(inputFolder, prefix = "RETIREMENT-Positions"),
+            scanFolder(inputFolder, prefix = "Retirement Group-Positions"),
             workFolder = workFolder,
             staticData = staticData
         )

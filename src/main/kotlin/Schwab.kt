@@ -78,7 +78,7 @@ class Schwab {
                                 out.newLine()
                                 headerWritten = true
                             }
-                        } else if (line.indexOf("Account Total") == 1) {
+                        } else if (line.indexOf("Account Total") == 1 || line.indexOf("Positions Total")==1) {
                             // skip Account Total
                         } else {
                             out.append(currentAccount)

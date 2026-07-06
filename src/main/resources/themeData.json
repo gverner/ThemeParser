@@ -55,6 +55,19 @@
       ]
     },
     {
+      "name": "Chemicals",
+      "identities": [
+        {
+          "symbol": "LXU",
+          "listingExchange": "NYSE"
+        },
+        {
+          "symbol": "SSL",
+          "listingExchange": "NYSE"
+        }
+      ]
+    },
+    {
       "name": "China",
       "identities": [
         {
@@ -192,6 +205,10 @@
         },
         {
           "symbol" : "3303",
+          "listingExchange" : "SEHK"
+        },
+        {
+          "symbol" : "2908",
           "listingExchange" : "SEHK"
         },
         {
@@ -401,6 +418,10 @@
         {
           "symbol": "SPMm",
           "listingExchange": "BVME"
+        },
+        {
+          "symbol": "SDRL",
+          "listingExchange": "NYSE"
         }
       ]
     },
